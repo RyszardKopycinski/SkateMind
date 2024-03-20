@@ -1,0 +1,71 @@
+@import url("reset.css");
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #333
+    background-color: #DDDDDD
+}
+
+p {
+    padding: 10px;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#header {
+    float: left;
+    height: 64px;
+    width: 1000px;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 150px, rgba(255,0,0,1) 250px, rgba(255,0,0,1) 900px, rgba(0,0,0,1) 1000px);
+    text-align: center;
+}
+
+#header-img {
+    float: left;
+    background: #FF6633;
+}
+
+#navigation {
+    float: left;
+    height: 40px;
+    width: 1000px;
+    background: #FFCC33;
+}
+
+#content {
+    float: left;
+    background: #DDDDDD;
+    width: 830px;
+    padding: 10px;
+    float: right;
+}
+
+#leftcolumn {
+    background: #33CCFF;
+    width: 150px;
+    float: left;
+    text-align: center;
+}
+
+#footer {
+    height: 40px;
+    width: 1000px;
+    background: #33FF66;
+    clear: both;
+    text-align: center;
+}
+
+span.validationError {
+	color: red;
+}
+
+table, th, td{
+border: 1px solid;
+padding: 2px;
+float: center;
+}

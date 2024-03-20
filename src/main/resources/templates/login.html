@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+	<meta charset="UTF-8">
+	<title>Skate Mind</title>
+	<link rel="stylesheet" th:href="@{styles.css}">
+</head>
+<body>
+	<div layout:fragment="content" id="content">
+		<h1>Logowanie...</h1>
+		<div th:if="${param.error}">
+			Błędna nazwa użytkownika lub hasło.
+		</div>
+		<div th:if="${param.logout}">
+			Poprawnie wylogowano.
+		</div>
+		<form th:action="@{/login}" method="POST">
+			<div><label> Nazwa użytkownika: <br>
+				<input type="text" name="username" /> </label>
+			</div>
+			<div><label> Hasło: <br>
+				<input type="password" name="password" /> </label>
+			</div>
+			<div><input type="submit" value="Zaloguj się" /></div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">>
+<head>
+	<meta charset="UTF-8">
+	<title>Skate Mind</title>
+	<link rel="stylesheet" th:href="@{styles.css}">
+</head>
+<body>
+	<div th:fragment="leftcolumn" id="leftcolumn">
+		<br>
+		<span th:text="${#dates.format(time, 'dd/MMM/yyyy')}">time</span><br>
+		<span th:text="${#dates.format(time, 'HH:mm:ss')}">time</span><br><br>
+	</div>
+</body>
+</html>

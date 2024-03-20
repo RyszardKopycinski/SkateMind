@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="head">
+	<meta charset="UTF-8">
+	<title>Skate </title>
+	<link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+	<div id="wrapper">
+		<div th:replace="~{fragments/header :: header}" id="header">
+			<!-- <img th:src="@{images/inline-mini.jpg}" id="header-img">
+			<h1>Skate Mind</h1>
+			<p>Strona w budowie, może bunkrów nie ma, ale i tak będzie dobrze!</p> -->
+		</div>
+		<div layout:fragment="navigation" id="navigation">
+			<p>Tu jest menu</p>
+		</div>
+		<div th:replace="~{fragments/leftcolumn :: leftcolumn}" id="leftcolumn">
+			<p>Lewa strona1</p>
+		</div>
+		<!-- <div layout:fragment="leftcolumn" id="leftcolumn">
+			<p>Lewa strona1</p>
+		</div> -->
+		<div layout:fragment="content" id="content">
+			<p>Środek</p>
+		</div>
+		<div th:replace="~{fragments/footer :: footer}" id="footer">
+			<p>stopka</p>
+		</div>
+	</div>
+</body>
+</html>

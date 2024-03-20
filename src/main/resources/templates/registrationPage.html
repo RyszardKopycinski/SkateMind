@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+	<meta charset="UTF-8">
+	<title>Skate Mind</title>
+	<link rel="stylesheet" th:href="@{styles.css}">
+</head>
+<body>
+	<div layout:fragment="content" id="content">
+		<h1>Rejestracja nowego użytkownika</h1>
+		<form method="POST" th:action="@{/register/new}" th:object="${newUser}">
+			
+			<label for="username">Nazwa użytkownika: </label><br>
+			<input type="text" th:field="*{username}" id="username" size="40" maxlength="20">
+			<br>
+			<span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error<br></span>
+			<br>
+			<label for="email">Email: </label><br>
+			<input type="text" th:field="*{email}" id="email" name="email" size="40">
+			<br>
+			<span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error<br></span>
+			<br>
+			<label for="confirmEmail">Powtórz email:</label><br>
+			<input type="text" th:field="*{confirmEmail}" id="confirmEmail" size="40">
+			<br>
+			<span class="validationError" th:if="${#fields.hasErrors('confirmEmail')}" th:errors="*{confirmEmail}">Confirm Email Error<br></span>
+			<br>
+			<label for="password">Password: </label><br>
+			<input type="password" th:field="*{password}" id="password" size="40" maxlength="20">
+			<br>
+			<span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error<br></span>
+			<br>
+			<label for="confirmPassword">Confirm password: </label><br>
+			<input type="password" th:field="*{confirmPassword}" id="confirmPassword" size="40" maxlength="20">
+			<br>
+			<span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirm Password Error<br></span>
+			<br>
+			<span th:if="${#fields.hasErrors()}">
+				<ul>
+					<div th:each="err : ${#fields.errors('global')}" th:text="${err}">Błąd</div>
+				</ul>
+			</span>
+			<input type="submit" value="Zarejestruj">
+		</form>
+		<form method="post" th:action="@{/register/login}">
+			<br>
+			<input type="submit" value="Zaloguj się">
+		</form>
+	</div>
+</body>
+</html>

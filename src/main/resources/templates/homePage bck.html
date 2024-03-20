@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" th:href="@{styles.css}">
+</head>
+<body>
+	<div id="wrapper">
+		<div th:replace="fragments/header :: header">
+		</div>
+		<div id="navigation">
+			<p>Tu jest menu</p>
+		</div>
+		<div id="leftcolumn">
+			<p>Lewa strona</p>
+		</div>
+		<div id="content">
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>text</th>
+					<th>type</th>
+					<th>XXX</th>
+				</tr>
+				<tr th:each="post : ${allposts}">
+					<td th:text="${post.id}">#1</td>
+					<td th:text="${post.text}">tekst</td>
+					<td th:text="${post.type}">type</td>
+					<td>X</td>
+				</tr>
+			</table>
+			<br>
+			<h3>testy:</h3><br>
+			<div>
+				<span th:text="${singlepost.text}"> tesst</span><br>
+				<span th:text="${testpost.text}"> tesst</span><br>
+			</div>
+			<p>Posty... www</p>
+		</div>
+		<div id="footer">
+			<p>stopka</p>
+		</div>
+	</div>
+</body>
+</html>
