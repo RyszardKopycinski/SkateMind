@@ -1,5 +1,7 @@
 @import url("reset.css");
-
+div.space{
+    height: 8px;
+}
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -7,65 +9,171 @@ body {
     background-color: #DDDDDD
 }
 
-p {
-    padding: 10px;
-}
-
 #wrapper {
     margin: 0 auto;
     width: 1000px;
 }
-
-#header {
-    float: left;
-    height: 64px;
-    width: 1000px;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 150px, rgba(255,0,0,1) 250px, rgba(255,0,0,1) 900px, rgba(0,0,0,1) 1000px);
+/*----------------HEADER----------------*/
+div.header {
+     float: center;
+     border-radius: 8px;
+     box-shadow: 4px 4px 16px black;
+     background: rgb(0,0,0);
+     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 150px, rgba(255,0,0,1) 250px, rgba(255,0,0,1) 900px, rgba(0,0,0,1) 1000px);
+     height: 64px;
+     width: 984px;
+     padding: 8px;
+     text-align: center;
+ }
+ #header-img {
+     float: left;
+     background: #FF6633;
+ }
+/*----------------NAV----------------*/
+.topnav {
+    float: center;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid white;
+    width: 984px;
+    padding: 8px;
+	background-color: #222222;
+	box-shadow: 4px 4px 16px black;
+}
+.topnav a {
+    border-radius: 4px;
+    color: #eeeeee;
+    background-color: #444444;
     text-align: center;
+    padding: 4px;
+    margin-right: 8px;
+	text-decoration: none;
+	font-size: 17px;
+}
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+.topnav a.active {
+	background-color: #AA0000;
+	color: white;
 }
 
-#header-img {
-    float: left;
-    background: #FF6633;
+h1 {
+    margin: 4px;
+    font-size: 16px;
 }
-
-#navigation {
+.left {
     float: left;
-    height: 40px;
-    width: 1000px;
-    background: #FFCC33;
 }
-
-#content {
-    float: left;
-    background: #DDDDDD;
-    width: 830px;
-    padding: 10px;
+.right {
     float: right;
 }
 
-#leftcolumn {
-    background: #33CCFF;
-    width: 150px;
-    float: left;
-    text-align: center;
+.content {
+    float: center;
+    align-item: center;
+    box-shadow: 4px 4px 16px black;
+    border-radius: 8px;
+    background: #DDDDDD;
+    height: auto;
+    width: 984px;
+    padding: 8px;
 }
 
-#footer {
-    height: 40px;
-    width: 1000px;
-    background: #33FF66;
-    clear: both;
+div.footer {
+    float: center;
+    border-radius: 8px;
+    border: 1px solid white;
+    box-shadow: 4px 4px 16px black;
+    background: #222222;
+    color: white;
+    height: auto;
+    width: 984px;
+    padding: 8px;
     text-align: center;
 }
 
 span.validationError {
 	color: red;
 }
-
+/*----------------TABLES----------------*/
 table, th, td{
-border: 1px solid;
-padding: 2px;
-float: center;
+    margin: auto;
+    margin-top: 8px;
+    align: center;
+    border: 1px solid;
+    padding: 2px;
+    float: center;
+}
+.tg-about {
+    border-collapse: collapse;
+    border-spacing: 2px;
+    border: 1px solid black;
+    text-align: center;
+}
+.tg-about th{
+    background-color: #CC6666;
+}
+.tg-about-static {
+    color: black;
+    border: 1px solid black;
+    margin: 8px;
+    width: auto;
+}
+.tg-about-description {
+    color: black;
+    border: 1px solid black;
+    margin: 8px;
+    width: 80%;
+}
+/*----------------DIV----------------*/
+div.user-info {
+    float: center;
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 300px;
+    height: auto;
+    padding: 8px;
+    margin: 16px auto;
+    box-shadow: 4px 4px 16px black;
+}
+div.user-info-element {
+    border-radius: 4px;
+    width: 260px;
+    height: auto;
+    padding: 4px;
+    margin: 8px auto;
+    background-color: #EEEEEE;
+}
+input, label {
+    margin: 4px;
+}
+div.level-1 {
+    float: center;
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 4px 4px 16px black;
+    width: 95%px;
+    height: auto;
+    padding: 8px;
+    margin: 16px auto;
+}
+div.user-list {
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 4px 4px 16px black;
+    background: #444444;
+    width: auto;
+    height: auto;
+    padding: 8px;
+    margin: 16px auto;
+}
+input.register {
+    width: 95%;
+    float: center
+
+}
+.plaintext {
+    line-height: 1.5;
 }

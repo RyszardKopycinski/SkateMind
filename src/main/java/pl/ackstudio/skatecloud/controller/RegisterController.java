@@ -36,8 +36,10 @@ public class RegisterController {
     @GetMapping
     public String registerForm(Model model) {
         model = greatBuilder.init(model)
-                            .addLeftColumnContent()
+                            .addFooterContent()
+                            .addNavbarContent()
                             .build();
+        model.addAttribute("activePage", "registerPage");
         return "registrationPage";
     }
 
@@ -47,7 +49,6 @@ public class RegisterController {
             for (ObjectError err : errors.getAllErrors()) {
                 System.out.println(err);
             }
-            ;
             System.out.println("ERROR");
             return "registrationPage";
         }

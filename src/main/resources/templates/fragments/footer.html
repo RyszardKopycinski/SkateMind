@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">>
-<head>
-	<meta charset="UTF-8">
-	<title>Skate </title>
-	<link rel="stylesheet" th:href="@{styles.css}">
-</head>
 <body>
-	<div th:fragment="footer" id="footer">
-		<table class="users-table">
-			<tr>
-				<th>ID</th>
-				<th>Nazwa użytkownika</th>
-				<th>Adres email</th>
-			</tr>
-			<tr th:each="user : ${users}">
-				<td th:text="${user.id}">#1</td>
-				<td th:text="${user.username}">tekst</td>
-				<td th:text="${user.email}">type</td>
-			</tr>
-		</table>
+	<div th:fragment="footer" class="footer">
+		<div class="level-1">
+			<p>Registered users:<br></p>
+			<table class="users-table">
+				<tr>
+					<th>ID</th>
+					<th>Nazwa użytkownika</th>
+					<th>Adres email</th>
+				</tr>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.id}">#1</td>
+					<td th:text="${user.username}">tekst</td>
+					<td th:text="${user.email}">type</td>
+				</tr>
+			</table>
+		</div>
+		<div class="user-list">
+			<span>Logged users: </span>
+			<span th:each="loggedUser : ${loggedUsers}">
+				<span th:text="${loggedUser}">User</span>
+			</span>
+		</div>
 	</div>
 </body>
 </html>

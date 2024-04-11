@@ -22,10 +22,9 @@ public class HomeController {
     public String home(Model model) {
         model = greatBuilder.init(model)
                             .addFooterContent()
-                            .addLeftColumnContent()
+                            .addNavbarContent()
                             .build();
-        System.out.println("<>");
-        System.out.println(model);
+        model.addAttribute("activePage","homePage");
         return "homePage";
     }
 }

@@ -7,30 +7,30 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.ackstudio.skatecloud.domain.User;
 
 @Data
-@EmailMatch(first = "email", second = "confirmEmail", message = "różne emaile")
-@PasswordMatch(first = "password", second = "confirmPassword", message = "różne hasła")
+@EmailMatch(first = "email", second = "confirmEmail", message = "e-mails are different")
+@PasswordMatch(first = "password", second = "confirmPassword", message = "passwords don't match")
 public class UserForm {
 
-    @NotEmpty(message = "pole obowiązkowe")
-    @Size(min = 3, message = "nazwa użytkownika musi zawierać minimum 5 znaków")
-    @Pattern(regexp = "^[a-zA-Z]\\w+", message = "nazwa użytkownika może zawierać tylko litery, cyfry, znak \'_\' oraz zaczynać się od litery")
+    @NotEmpty(message = "field required")
+    @Size(min = 5, message = "must contain at least 5 characters")
+    @Pattern(regexp = "[a-zA-Z0-9]+", message = "username must consist only of letters and numbers")
     private String username;
-    @NotEmpty(message = "pole obowiązkowe")
-    @Email(message = "nie rozpoznano prawidłowego adresu email")
+    @NotEmpty(message = "field required")
+    @Email(message = "valid e-mail not recognized")
     @Column(unique = true)
     private String email;
-    @NotEmpty(message = "pole obowiązkowe")
-    @Email(message = "nie rozpoznano prawidłowego adresu email")
+    @NotEmpty(message = "field required")
+    @Email(message = "valid e-mail not recognized")
     private String confirmEmail;
-    @NotEmpty(message = "pole obowiązkowe")
-    @Size(min = 3, message = "hasło musi zawierać minimalnie 6 znaków")
-    @Pattern(regexp = "(\\w|[!@#$%^&*=+])+", message = "hasło może składać się tylko z liter, cyft oraz znaków: !@#$%^&*=+")
+    @NotEmpty(message = "field required")
+    @Size(min = 5, message = "must contain at least 5 characters")
+    @Pattern(regexp = "(\\w|[_!@#$%^&*=+])+", message = "password must consist only letters, numbers or characters: _!@#$%^&*=+")
     private String password;
-    @NotEmpty(message = "pole obowiązkowe")
+    @NotEmpty(message = "field required")
     private String confirmPassword;
 
     public User toUser(PasswordEncoder passwordEncoder) {
-        return new User(username, email, passwordEncoder.encode(password), "ROLE_USER");
+        return new User(username, email, passwordEncoder.encode(password), "USER");
     }
 }
 

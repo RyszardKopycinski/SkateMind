@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">>
+<body>
+	<div th:fragment="navigation" class="topnav">
+		<!-- <nav id="nav">
+			<div class="nav left">
+				<a class="nav-link" th:classappend="${activePage == 'homePage'} ? 'active' : 'inactive'" th:href="@{/}">Home</a>
+			</div>
+			<div class="nav right">
+				<a th:if="${loginout == ''}" class="nav-link" th:classappend="${activePage == 'registerPage'} ? 'active'" th:href="@{/register}">Register</a>
+				<a th:if="${loginout == ''}" class="nav-link" th:classappend="${activePage == 'loginPage'} ? 'active'" th:href="@{/login}">Log in</a>
+				<a th:unless="${loginout == ''}" class="nav-link" th:classappend="${activePage == 'myAccountPage'} ? 'active'" th:href="@{/user/info}">My Account</a>
+				<a th:unless="${loginout == ''}" class="nav-link" th:classappend="${activePage == 'logoutPage'} ? 'active'" th:href="@{/login/out}">Log out</a>
+			</div>
+		</nav> -->
+		<div>
+			<a class="left" th:classappend="${activePage == 'homePage'} ? 'active' : 'inactive'" th:href="@{/}">Home</a>
+			<a class="left" th:classappend="${activePage == 'aboutPage'} ? 'active' : 'inactive'" th:href="@{/about}">About</a>
+			<a th:unless="${loginout}" class="right" th:classappend="${activePage == 'registerPage'} ? 'active'" th:href="@{/register}">Register</a>
+			<a th:unless="${loginout}" class="right" th:classappend="${activePage == 'loginPage'} ? 'active'" th:href="@{/login}">Log in</a>
+			<a th:if="${loginout}" class="right" th:classappend="${activePage == 'myAccountPage'} ? 'active'" th:href="@{/user/info}">My Account</a>
+			<a th:if="${loginout}" class="right" th:classappend="${activePage == 'logoutPage'} ? 'active'" th:href="@{/login/out}">Log out</a>
+		</div>
+	</div>
+</body>
+</html>

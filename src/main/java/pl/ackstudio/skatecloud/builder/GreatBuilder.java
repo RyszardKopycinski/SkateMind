@@ -1,25 +1,24 @@
 package pl.ackstudio.skatecloud.builder;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
-import pl.ackstudio.skatecloud.domain.User;
-
-import java.util.ArrayList;
-import java.util.List;
+import pl.ackstudio.skatecloud._development.ProgressNotesRepository;
 
 @Component
 public class GreatBuilder {
 
-    private LeftColumnBuilder leftColumnBuilder;
-    private FooterBuilder     footerBuilder;
-    private Model             model;
+    private NavbarBuilder           navbarBuilder;
+    private FooterBuilder           footerBuilder;
+    private Model                   model;
+    //tests
+    private ProgressNotesRepository progressNotesRepository;
 
     @Autowired
-    public GreatBuilder(FooterBuilder footerBuilder, LeftColumnBuilder leftColumnBuilder) {
+    public GreatBuilder(FooterBuilder footerBuilder, NavbarBuilder navbarBuilder, ProgressNotesRepository progressNotesRepository) {
         this.footerBuilder = footerBuilder;
-        this.leftColumnBuilder = leftColumnBuilder;
+        this.navbarBuilder = navbarBuilder;
+        this.progressNotesRepository = progressNotesRepository;
     }
 
     public GreatBuilder init(Model model) {
@@ -32,12 +31,14 @@ public class GreatBuilder {
         return this;
     }
 
-    public GreatBuilder addLeftColumnContent() {
-        this.model = leftColumnBuilder.addTime(model);
+    public GreatBuilder addNavbarContent() {
+        this.model = navbarBuilder.addLogedInfo(model);
         return this;
     }
 
     public Model build() {
+        progressNotesRepository.findAll()
+                               .forEach(element -> System.out.println(element));
         return model;
     }
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+</head>
+<body>
+	<section layout:fragment="content" class="content">
+		<div class="user-info">
+			<div class="user-info-element">
+				<p>Username: <span th:text="${user?.username}">username</span></p>
+			</div>
+			<div class="user-info-element">
+				<p>Email: <span th:text="${user?.email}">username</span></p>
+			</div>
+		</div>
+		<div th:if="${userDetail}" class="user-info">
+			<p>userDetails:</p>
+			<div class="user-info-element">
+				<p>Full name: <span th:text="${userDetail?.fullname} ?: '-'">fullname</span></p>
+			</div>
+			<div class="user-info-element">
+				<p>Address: <span th:text="${userDetail?.address} ?: '-'">fullname</span></p>
+			</div>
+			<div class="user-info-element">
+				<p>City: <span th:text="${userDetail?.city} ?: '-'">city</span></p>
+			</div>
+			<div class="user-info-element">
+				<p>State: <span th:text="${userDetail?.state.full} ?: '-'">state</span></p>
+			</div>
+			<div class="user-info-element">
+				<p>Zip: <span th:text="${userDetail?.zip} ?: '------'">zip</span></p>
+			</div>
+			<div class="user-info-element">
+				<p>Birth date: <span th:text="${userDetail?.birthDate} ?: '---- -- --'">birth date</span></p>
+			</div>
+			<div class="user-info-element">
+				<p>Phone number: <span th:text="${userDetail?.phoneNumber} ?: '--- --- ---'">phone number</span></p>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

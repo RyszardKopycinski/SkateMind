@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+	<meta charset="UTF-8">
+	<title>Skate Mind</title>
+	<link rel="stylesheet" th:href="@{styles.css}">
+</head>
+<body>
+	<section layout:fragment="content" class="content">
+		<div th:unless="${loginout}" class="user-info">
+			<h1 style="text-align: center">Log in...</h1><br>
+			
+			<div th:if="${param.error}">
+				<p>Incorrect username or password.</p>
+			</div>
+			<div th:if="${param.logout}">
+				<p>Successfully logged out</p>
+			</div>
+			<form th:action="@{/login}" method="POST">
+				<div>
+					<label> Username:<br>
+						<input class="register" type="text" name="username" />
+					</label>
+				</div>
+				<div>
+					<label> Password:<br>
+						<input class="register" type="password" name="password" />
+					</label>
+				</div>
+				<div style="display: flex; align-items: center; justify-content: center">
+					<input style="width: 80px" type="submit" value="Log in" />
+				</div>
+			</form>
+		</div>
+		<div th:if="${loginout}" class="level-1">
+			<h1>Logging out...</h1>
+			<form th:action="@{/login/out}" method="POST">
+				<div style="display: flex; align-items: center; justify-content: center">
+					<input style="width: 80px" type="submit" value="Log out" />
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

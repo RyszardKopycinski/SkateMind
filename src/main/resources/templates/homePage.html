@@ -6,13 +6,13 @@
 <head>
 </head>
 <body>
-	<section layout:fragment="content" id="content">
-		
-		<h1>Rolki są super!</h1>
-		
-		<a th:href="@{/register}">Zarejestruj się!</a><br>
-		lub<br>
-		<a th:href="@{/login}">Zaloguj!</a>
+	<section layout:fragment="content" class="content">
+		<h1>Welcome!</h1>
+		<div class="level-1 plaintext">
+			<p>Welcome <span th:text="${loginout} ? ${loginout} : 'stranger'"></span> to my website. Here you can follow my progress in learning and developing as a Java developer. Currently, the
+			   project of this application is based on: Java, Spring, JPA/Hibernate, Thymeleaf. In the near future, it will be expanded to include Angular.js and RESTful API.</p><br>
+			<p>You can find current works and plans in the 'About' tab.</p>
+		</div>
 	</section>
 </body>
 </html>
