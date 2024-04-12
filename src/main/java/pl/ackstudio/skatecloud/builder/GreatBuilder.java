@@ -8,11 +8,11 @@ import pl.ackstudio.skatecloud._development.ProgressNotesRepository;
 @Component
 public class GreatBuilder {
 
-    private NavbarBuilder           navbarBuilder;
-    private FooterBuilder           footerBuilder;
-    private Model                   model;
+    private final NavbarBuilder navbarBuilder;
+    private final FooterBuilder footerBuilder;
+    private       Model         model;
     //tests
-    private ProgressNotesRepository progressNotesRepository;
+    private final ProgressNotesRepository progressNotesRepository;
 
     @Autowired
     public GreatBuilder(FooterBuilder footerBuilder, NavbarBuilder navbarBuilder, ProgressNotesRepository progressNotesRepository) {

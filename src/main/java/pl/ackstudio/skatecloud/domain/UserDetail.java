@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 public class UserDetail {
 
-    private static final long      serialVersionUID = 1l;
+    private static final long      serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private              Long      id;

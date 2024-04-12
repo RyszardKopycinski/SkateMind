@@ -11,7 +11,7 @@ import pl.ackstudio.skatecloud.builder.GreatBuilder;
 @RequestMapping("/")
 public class HomeController {
 
-    private GreatBuilder greatBuilder;
+    private final GreatBuilder greatBuilder;
 
     @Autowired
     public HomeController(GreatBuilder greatBuilder) {

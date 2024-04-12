@@ -1,10 +1,10 @@
 package pl.ackstudio.skatecloud.controller;
 
 public class PostController {
-    //TODO: GET wszystkie posty
-    //TODO: GET moje posty
-    //TODO: GET nowy post
-    //TODO: POST nowy post
-    //TODO: DELETE wybrany post
-    //TODO: EDIT wybrany post
+    //TODO: RESTController
+    //TODO: GET All posts
+    //TODO: GET My posts
+    //TODO: GET/POST New post
+    //TODO: DELETE selected post
+    //TODO: EDIT selected post
 }

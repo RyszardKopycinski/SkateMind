@@ -22,9 +22,9 @@ import java.util.stream.Collectors;
 @Component
 public class FooterBuilder implements HttpSessionBindingListener {
 
-    private UserRepository  userRepository;
+    private final UserRepository  userRepository;
     @Autowired
-    private SessionRegistry sessionRegistry;
+    private       SessionRegistry sessionRegistry;
 
     @Autowired
     public FooterBuilder(UserRepository userRepository) {
@@ -37,13 +37,12 @@ public class FooterBuilder implements HttpSessionBindingListener {
                       .forEach(users::add);
         model.addAttribute("users", users);
         //Currently loggeg users
-        List<Object> principals = sessionRegistry.getAllPrincipals()
+        //TODO: FIX sessions!
+        /*List<Object> principals = sessionRegistry.getAllPrincipals()
                                                  .stream()
                                                  .filter(u -> !sessionRegistry.getAllSessions(u, false)
                                                                               .isEmpty())
                                                  .collect(Collectors.toList());
-        System.out.println("PRINCIPALS:");
-        System.out.println(principals);
         List<String> loggedUsersNames = new ArrayList<String>();
         for (Object principal : principals) {
             if (principal instanceof User) {
@@ -51,8 +50,7 @@ public class FooterBuilder implements HttpSessionBindingListener {
             }
         }
         System.out.println("Logged users: " + loggedUsersNames);
-        model.addAttribute("loggedUsers", loggedUsersNames);
+        model.addAttribute("loggedUsers", loggedUsersNames);*/
         return model;
     }
-    //TODO: budowniczy stopki. Dodaje do modelu informacje zawarte w stopce
 }

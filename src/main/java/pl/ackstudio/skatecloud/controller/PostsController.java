@@ -9,7 +9,7 @@ import pl.ackstudio.skatecloud.repository.PostRepository;
 @RequestMapping("/myposts")
 public class PostsController {
 
-    private PostRepository postRepo;
+    private final PostRepository postRepo;
 
     @Autowired
     public PostsController(PostRepository postRepo) {

@@ -17,9 +17,9 @@ import pl.ackstudio.skatecloud.repository.UserRepository;
 @RequestMapping("/user")
 public class AccountController {
 
-    private UserRepository       userRepository;
-    private UserDetailRepository userDetailRepository;
-    private GreatBuilder         greatBuilder;
+    private final UserRepository       userRepository;
+    private final UserDetailRepository userDetailRepository;
+    private final GreatBuilder         greatBuilder;
 
     @Autowired
     public AccountController(UserRepository userRepository, UserDetailRepository userDetailRepository, GreatBuilder greatBuilder) {

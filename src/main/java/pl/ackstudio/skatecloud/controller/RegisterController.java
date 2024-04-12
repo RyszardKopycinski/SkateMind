@@ -17,9 +17,9 @@ import pl.ackstudio.skatecloud.repository.UserRepository;
 @RequestMapping("/register")
 public class RegisterController {
 
-    private UserRepository  userRepo;
-    private PasswordEncoder passwordEncoder;
-    private GreatBuilder    greatBuilder;
+    private final UserRepository  userRepo;
+    private final PasswordEncoder passwordEncoder;
+    private final GreatBuilder    greatBuilder;
 
     @Autowired
     public RegisterController(UserRepository userRepo, PasswordEncoder passwordEncoder, GreatBuilder greatBuilder) {

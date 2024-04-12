@@ -6,7 +6,7 @@ public enum State {
             "wielkopolskie"), ZACHO("zachodniopomorskie");
     String full;
 
-    private State(String full) {
+    State(String full) {
         this.full = full;
     }
 

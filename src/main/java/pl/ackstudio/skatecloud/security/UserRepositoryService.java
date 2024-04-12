@@ -11,7 +11,7 @@ import pl.ackstudio.skatecloud.repository.UserRepository;
 @Service
 public class UserRepositoryService implements UserDetailsService {
 
-    private UserRepository userRepo;
+    private final UserRepository userRepo;
 
     @Autowired
     public UserRepositoryService(UserRepository userRepo) {

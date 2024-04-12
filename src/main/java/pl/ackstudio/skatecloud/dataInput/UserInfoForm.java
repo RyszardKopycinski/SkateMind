@@ -1,5 +1,5 @@
 package pl.ackstudio.skatecloud.dataInput;
 
 public class UserInfoForm {
-    //TODO: pobranie i walidacja danych
+    //TODO: Import and validate data
 }

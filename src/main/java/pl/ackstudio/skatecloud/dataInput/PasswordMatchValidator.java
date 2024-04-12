@@ -31,7 +31,7 @@ public class PasswordMatchValidator implements ConstraintValidator<PasswordMatch
             secondField.setAccessible(true);
             final String firstValue = (String) firstField.get(value);
             final String secondValue = (String) secondField.get(value);
-            return firstValue != null && secondValue != null && firstValue.equals(secondValue);
+            return firstValue != null && firstValue.equals(secondValue);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

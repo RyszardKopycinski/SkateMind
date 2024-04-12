@@ -12,7 +12,7 @@ import java.util.Date;
 @Table(name = "USERS_POSTS")
 public class UserPost {
 
-    private static final long   serialVersionUID = 1l;
+    private static final long   serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private              Long   id;
@@ -22,7 +22,7 @@ public class UserPost {
     private final        String content;
 
     @PrePersist
-    private void createrAt() {
+    private void createdAt() {
         createdAt = new Date();
     }
 }

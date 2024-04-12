@@ -21,16 +21,7 @@ public class NavbarBuilder {
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             logInOut = authentication.getName();
         }
-
-        /*Authentication authentication = SecurityContextHolder.getContext()
-                                                             .getAuthentication();
-        if (authentication.isAuthenticated()) {
-            logInOut = "Witaj " + authentication.getName();
-        } else {
-            logInOut = "wylogowano";
-        }*/
         System.out.println(logInOut);
         return model.addAttribute("loginout", logInOut);
     }
-    //TODO: dodawanie paska nawigacji
 }

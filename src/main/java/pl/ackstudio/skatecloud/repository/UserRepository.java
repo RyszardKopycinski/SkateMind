@@ -1,9 +1,8 @@
 package pl.ackstudio.skatecloud.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import pl.ackstudio.skatecloud.domain.User;
 
-public interface UserRepository extends CrudRepository<User, Long> {
-
-    public User findByUsername(String username);
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String username);
 }

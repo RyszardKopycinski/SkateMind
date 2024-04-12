@@ -1,12 +1,10 @@
-package pl.ackstudio.skatecloud;
+package pl.ackstudio.skatecloud._development;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import pl.ackstudio.skatecloud._development.ProgressNote;
-import pl.ackstudio.skatecloud._development.ProgressNotesRepository;
 import pl.ackstudio.skatecloud.domain.State;
 import pl.ackstudio.skatecloud.domain.User;
 import pl.ackstudio.skatecloud.domain.UserDetail;
@@ -15,8 +13,7 @@ import pl.ackstudio.skatecloud.repository.UserRepository;
 
 import java.time.LocalDate;
 
-import static pl.ackstudio.skatecloud.domain.StatusInfo.IN_PROGRESS;
-import static pl.ackstudio.skatecloud.domain.StatusInfo.WAITING;
+import static pl.ackstudio.skatecloud.domain.StatusInfo.*;
 
 @Profile("dev")
 @Configuration
@@ -47,11 +44,11 @@ public class DevelopmentConfig {
             }
 
             private void loadProgressNotes() {
-                progressNotesRepo.save(new ProgressNote(LocalDate.of(2024, 04, 11), "TO FIX: Display of logged in users: shows logged out uses", WAITING));
-                progressNotesRepo.save(new ProgressNote(LocalDate.of(2024, 04, 11), "TO DO: Create About page", IN_PROGRESS));
-                progressNotesRepo.save(new ProgressNote(LocalDate.of(2024, 04, 11),
-                                                        "TO DO: Create possibility to edit/update user detailed information",
-                                                        WAITING));
+                progressNotesRepo.save(new ProgressNote(LocalDate.of(2024, 04, 11), "TO-FIX: Sessions management", WAITING));
+                progressNotesRepo.save(new ProgressNote(LocalDate.of(2024, 04, 11), "TO-DO: About page", COMPLETED));
+                progressNotesRepo.save(new ProgressNote(LocalDate.of(2024, 04, 11), "TO-DO: Create-edit user detailed information", WAITING));
+                progressNotesRepo.save(new ProgressNote(LocalDate.of(2024, 04, 11), "TO-FIX: Basic security configuration", COMPLETED));
+                progressNotesRepo.save(new ProgressNote(LocalDate.of(2024, 04, 12), "TO-DO: RESTful user's posts controller and reactive web", IN_PROGRESS));
             }
         };
     }
