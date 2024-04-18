@@ -7,7 +7,7 @@
 </head>
 <body>
 	<section layout:fragment="content" class="content">
-		<div th:unless="${loginout}" class="user-info">
+		<div th:unless="${loginout}" class="info-box box-size-S">
 			<h1 style="text-align: center">Log in...</h1><br>
 			
 			<div th:if="${param.error}">
@@ -17,26 +17,24 @@
 				<p>Successfully logged out</p>
 			</div>
 			<form th:action="@{/login}" method="POST">
-				<div>
-					<label> Username:<br>
-						<input class="register" type="text" name="username" />
-					</label>
+				<div class="info-box">
+					<label style=""> Username:<br></label>
+					<input class="input-text-S" type="text" name="username" />
 				</div>
-				<div>
-					<label> Password:<br>
-						<input class="register" type="password" name="password" />
-					</label>
+				<div class="info-box">
+					<label> Password:<br></label>
+					<input class="input-text-S" type="password" name="password" />
 				</div>
 				<div style="display: flex; align-items: center; justify-content: center">
-					<input style="width: 80px" type="submit" value="Log in" />
+					<input type="submit" value="Log in" />
 				</div>
 			</form>
 		</div>
-		<div th:if="${loginout}" class="level-1">
+		<div th:if="${loginout}" class="info-box box-size-S">
 			<h1>Logging out...</h1>
 			<form th:action="@{/login/out}" method="POST">
 				<div style="display: flex; align-items: center; justify-content: center">
-					<input style="width: 80px" type="submit" value="Log out" />
+					<input type="submit" value="Log out" />
 				</div>
 			</form>
 		</div>

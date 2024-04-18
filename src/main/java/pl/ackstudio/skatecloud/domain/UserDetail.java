@@ -10,8 +10,8 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @RequiredArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class UserDetail {
 
     private static final long      serialVersionUID = 1L;
@@ -26,5 +26,5 @@ public class UserDetail {
     private              State     state;
     private              String    zip;
     private              LocalDate birthDate;
-    private              int       phoneNumber;
+    private              String    phoneNumber;
 }

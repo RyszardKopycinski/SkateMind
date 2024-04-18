@@ -30,7 +30,7 @@ public class SecurityConfig {
         http.authenticationProvider(authenticationProvider())
             .authorizeHttpRequests(request -> request.requestMatchers("/", "/about", "/login", "/login/**", "/register")
                                                      .permitAll()
-                                                     .requestMatchers("/user/info")
+                                                     .requestMatchers("/user/info", "/user/edit")
                                                      .authenticated()
                                                      .requestMatchers("/user/info/**")
                                                      .hasAnyRole("ADMIN")

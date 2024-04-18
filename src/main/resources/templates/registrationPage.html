@@ -7,52 +7,48 @@
 </head>
 <body>
 	<section layout:fragment="content" class="content">
-		<div class="user-info">
+		<div class="info-box box-size-S">
 			<h1 style="text-align: center">Register</h1><br>
-			<form method="POST" th:action="@{/register/new}" th:object="${newUser}">
-				<div>
+			<form method="POST" th:action="@{/register}" th:object="${newUser}">
+				<div class="info-box">
 					<label for="username">Username:<br>
 						<input class="register" type="text" th:field="*{username}" id="username">
 					</label>
 					<span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error<br></span>
 				</div>
-				<div>
+				<div class="info-box">
 					<label for="email">Email:<br>
 						<input class="register" type="text" th:field="*{email}" id="email" name="email">
 					</label>
 					<span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error<br></span>
 				</div>
-				<div>
+				<div class="info-box">
 					<label for="confirmEmail">Repeat email:<br>
 						<input class="register" type="text" th:field="*{confirmEmail}" id="confirmEmail">
 					</label>
 					<span class="validationError" th:if="${#fields.hasErrors('confirmEmail')}" th:errors="*{confirmEmail}">Repeat Email Error<br></span>
 				</div>
-				<div>
+				<div class="info-box">
 					<label for="password">Password:<br>
 						<input class="register" type="password" th:field="*{password}" id="password">
 					</label>
 					<span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error<br></span>
 				</div>
-				<div>
+				<div class="info-box">
 					<label for="confirmPassword">Repeat password:<br>
 						<input class="register" type="password" th:field="*{confirmPassword}" id="confirmPassword">
 					</label>
 					<span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Repeat Password Error<br></span>
 				</div>
-				<span th:if="${#fields.hasErrors()}">
-				<ul>
-					<div th:each="err : ${#fields.errors('global')}" th:text="${err}">Error</div>
-				</ul></span>
+				<div th:if="${#fields.hasErrors()}">
+					<ul>
+						<li th:each="err : ${#fields.errors('global')}" th:text="${err}">Error</li>
+					</ul>
+				</div>
 				<div style="display: flex; align-items: center; justify-content: center">
 					<input style="width: 80px" type="submit" value="Register">
 				</div>
 			</form>
-			<!-- <p style="align: center">or</p>
-			<form method="post" th:action="@{/register/login}">
-				<br>
-				<input type="submit" value="Log In">
-			</form> -->
 		</div>
 	</section>
 </body>

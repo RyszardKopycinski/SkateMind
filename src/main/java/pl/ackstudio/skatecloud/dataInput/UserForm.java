@@ -30,7 +30,7 @@ public class UserForm {
     private String confirmPassword;
 
     public User toUser(PasswordEncoder passwordEncoder) {
-        return new User(username, email, passwordEncoder.encode(password), "USER");
+        return new User(username, email, passwordEncoder.encode(password), "ROLE_USER");
     }
 }
 

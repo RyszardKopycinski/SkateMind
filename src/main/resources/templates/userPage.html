@@ -7,38 +7,72 @@
 </head>
 <body>
 	<section layout:fragment="content" class="content">
-		<div class="user-info">
-			<div class="user-info-element">
-				<p>Username: <span th:text="${user?.username}">username</span></p>
-			</div>
-			<div class="user-info-element">
-				<p>Email: <span th:text="${user?.email}">username</span></p>
-			</div>
+		<div class="info-box box-size-M">
+			<table class="info-table">
+				<tr>
+					<th class="info-table">Username:</th>
+					<td class="info-table">
+						<span th:text="${user?.username} ?: '-'"></span>
+					</td>
+				</tr>
+				<tr>
+					<th class="info-table">Email:</th>
+					<td class="info-table">
+						<span th:text="${user?.email} ?: '-'"></span>
+					</td>
+				</tr>
+			</table>
 		</div>
-		<div th:if="${userDetail}" class="user-info">
-			<p>userDetails:</p>
-			<div class="user-info-element">
-				<p>Full name: <span th:text="${userDetail?.fullname} ?: '-'">fullname</span></p>
-			</div>
-			<div class="user-info-element">
-				<p>Address: <span th:text="${userDetail?.address} ?: '-'">fullname</span></p>
-			</div>
-			<div class="user-info-element">
-				<p>City: <span th:text="${userDetail?.city} ?: '-'">city</span></p>
-			</div>
-			<div class="user-info-element">
-				<p>State: <span th:text="${userDetail?.state.full} ?: '-'">state</span></p>
-			</div>
-			<div class="user-info-element">
-				<p>Zip: <span th:text="${userDetail?.zip} ?: '------'">zip</span></p>
-			</div>
-			<div class="user-info-element">
-				<p>Birth date: <span th:text="${userDetail?.birthDate} ?: '---- -- --'">birth date</span></p>
-			</div>
-			<div class="user-info-element">
-				<p>Phone number: <span th:text="${userDetail?.phoneNumber} ?: '--- --- ---'">phone number</span></p>
-			</div>
+		<div class="info-box box-size-M">
+			<table class="info-table">
+				<tr>
+					<th class="info-table">Full name:</th>
+					<td class="info-table">
+						<span th:text="${userDetail?.fullname} ?: '-'"></span>
+					</td>
+				</tr>
+				<tr>
+					<th class="info-table">Address:</th>
+					<td class="info-table">
+						<span th:text="${userDetail?.address} ?: '-'"></span>
+					</td>
+				</tr>
+				<tr>
+					<th class="info-table">City:</th>
+					<td class="info-table">
+						<span th:text="${userDetail?.city} ?: '-'"></span>
+					</td>
+				</tr>
+				<tr>
+					<th class="info-table">State:</th>
+					<td class="info-table">
+						<span th:text="${userDetail?.state?.full} ?: '-'"></span>
+					</td>
+				</tr>
+				<tr>
+					<th class="info-table">Zip:</th>
+					<td class="info-table">
+						<span th:text="${userDetail?.zip} ?: '-'"></span>
+					</td>
+				</tr>
+				<tr>
+					<th class="info-table">Birth date:</th>
+					<td class="info-table">
+						<span th:text="${userDetail?.birthDate} ?: '-'"></span>
+					</td>
+				</tr>
+				<tr>
+					<th class="info-table">Phone number:</th>
+					<td class="info-table">
+						<span th:text="${userDetail?.phoneNumber} ?: '-'"></span>
+					</td>
+				</tr>
+			</table>
+			<a th:href="@{/user/edit}">
+				<button class="button" value="Edit">Edit</button>
+			</a>
 		</div>
+	
 	</section>
 </body>
 </html>

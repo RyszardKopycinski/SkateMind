@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.ackstudio.skatecloud.builder.GreatBuilder;
 import pl.ackstudio.skatecloud.dataInput.UserForm;
 import pl.ackstudio.skatecloud.domain.User;
@@ -43,23 +46,17 @@ public class RegisterController {
         return "registrationPage";
     }
 
-    @PostMapping("/new")
+    @PostMapping
     public String newUser(@Valid @ModelAttribute("newUser") UserForm newUser, Errors errors) {
         if (errors.hasErrors()) {
             for (ObjectError err : errors.getAllErrors()) {
                 System.out.println(err);
             }
-            System.out.println("ERROR");
             return "registrationPage";
         }
         User user = userRepo.save(newUser.toUser(passwordEncoder));
         System.out.println(user);
         System.out.println(userRepo.findByUsername(newUser.getUsername()));
-        return "redirect:/login";
-    }
-
-    @PostMapping("/login")
-    public String login() {
         return "redirect:/login";
     }
 }

@@ -37,4 +37,13 @@ public class AboutController {
         model.addAttribute("activePage", "aboutPage");
         return "aboutPage.html";
     }
+
+    @GetMapping("/edit")
+    public String getEdit(Model model) {
+        greatBuilder.init(model)
+                    .addFooterContent()
+                    .addNavbarContent();
+
+        return "aboutPage";
+    }
 }

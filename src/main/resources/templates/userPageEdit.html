@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+</head>
+<body>
+	<section layout:fragment="content" class="content">
+		<div class="info-box box-size-M">
+			<table class="info-table">
+				<tr>
+					<th class="info-table">Username:</th>
+					<td class="info-table" th:text="${user?.username} ?: '-'"></td>
+				</tr>
+				<tr>
+					<th class="info-table">Email:</th>
+					<td class="info-table" th:text="${user?.email} ?: '-'"></td>
+				</tr>
+			</table>
+		</div>
+		<div class="info-box box-size-M">
+			<form method="POST" th:action="@{/user/edit}" th:object="${updateDetail}" id="userDetails">
+				<table class="info-table">
+					<tr>
+						<th class="info-table">Full name:</th>
+						<td class="info-table">
+							<input size="40" height="8" th:name="fullname" th:value="${userDetail?.fullname}">
+						</td>
+					</tr>
+					<tr>
+						<th class="info-table">Address:</th>
+						<td class="info-table">
+							<input size="40" height="8" th:name="address" th:value="${userDetail?.address}">
+						</td>
+					</tr>
+					<tr>
+						<th class="info-table">City:</th>
+						<td class="info-table">
+							<input size="40" height="8" th:name="city" th:value="${userDetail?.city}">
+						</td>
+					</tr>
+					<tr>
+						<th class="info-table">State:</th>
+						<td class="info-table">
+							<select th:name="state">
+								<option th:selected="${st != userDetail?.state}"></option>
+								<option th:each="st : ${states}" th:value="${st}" th:text="${st.full}" th:selected="${st == userDetail?.state}"></option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th class="info-table">Zip:</th>
+						<td class="info-table">
+							<input size="40" height="8" th:name="zip" th:value="${userDetail?.zip} ?: ''">
+						</td>
+					</tr>
+					<tr>
+						<th class="info-table">Birth date:</th>
+						<td class="info-table">
+							<input type="date" max="2023-12-31" size="40" height="8" th:name="birthDate" th:value="${userDetail?.birthDate} ?: ''">
+						</td>
+					</tr>
+					<tr>
+						<th class="info-table">Phone number:</th>
+						<td class="info-table">
+							<input type="text" size="40" height="8" th:name="phoneNumber" th:value="${userDetail?.phoneNumber} ?: ''">
+						</td>
+					</tr>
+				</table>
+				<button class="button" type="submit" value="Update">Update</button>
+				<span th:if="${#fields.hasErrors()}">
+				<ul>
+					<li class="validationError" th:each="err : ${#fields.errors('*')}" th:text="${err}">Error</li>
+				</ul>
+				</span>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

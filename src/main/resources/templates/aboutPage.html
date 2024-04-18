@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout.html}" xmlns:th="http://www.w3.org/1999/xhtml">
+      layout:decorate="~{layout.html}">
 <head>
 </head>
 <body>
 	<section layout:fragment="content" class="content">
-		<div class="level-1">
+		<div class="info-box box-size-L">
 			<table class="tg-about">
 				<thead>
 				<tr>
@@ -19,7 +20,14 @@
 				<tr th:each="note : ${progressNotes}">
 					<td class="tg-about-static" th:text="${note.date}">-</td>
 					<td class="tg-about-description" th:text="${note.description}">-</td>
-					<td class="tg-about-static" th:text="${note.statusInfo.description}">-</td>
+					<td class="tg-about-static">
+						<div th:switch="${note.statusInfo.description}">
+							<p th:case="'Completed'" style="color: green; weight: bold" th:text="${note.statusInfo.description}">description</p>
+							<p th:case="'Waiting'" style="color: blue; weight: bold" th:text="${note.statusInfo.description}">description</p>
+							<p th:case="'In progress'" style="color: orangered; weight: bold" th:text="${note.statusInfo.description}">description</p>
+							<p th:case="*">test</p>
+						</div>
+					</td>
 				</tr>
 				</tbody>
 			</table>

@@ -1,27 +1,79 @@
 @import url("reset.css");
+:root {
+    --btn-text-color: #000;
+    --btn-back-color: #CCC;
+    --btn-bord-color: #FFF;
+
+    --exp-text-color: #CCC;
+    --exp-back-color: #800;
+    --exp-bord-color: #C00;
+
+    --all-text-color: #DDD;
+    --all-back-color: #444;
+    --all-bord-color: #000;
+    --all-shad-color: #F88;
+
+    --ele-text-color: #000;
+    --ele-back-color: #CCC;
+    --ele-bord-color: #000;
+
+    --radS: 4px;
+    --radM: 8px;
+    --radL: 12px;
+
+    --widthXXS: 80px;
+    --widthXS: 200px;
+    --widthS: 400px;
+    --widthM: 600px;
+    --widthL: 800px;
+    --widthXL: 1060px;
+}
 div.space{
     height: 8px;
 }
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
-    color: #333
-    background-color: #DDDDDD
+    color: #fff;
+    background-color: #000;
 }
 
 #wrapper {
+    float: center;
     margin: 0 auto;
-    width: 1000px;
+    width: 1060px;
 }
+/*----------------GENERAL----------------*/
+input[type=submit] {
+    width= var(--widthXXS)
+    color: var(--btn-text-color);
+    background-color: var(--btn-back-color);
+    border-radius: var(--radS);
+    border-color: var(--btn-bord-color);
+    text-align: center;
+    margin: 0px 4px;
+}
+.input-text-S {
+    width: 95%;
+}
+.button {
+    width: 60px;
+    margin: 4px;
+    padding: 2px;
+    float: center;
+    background-color: var(--btn-back-color);
+}
+
 /*----------------HEADER----------------*/
-div.header {
+.header {
      float: center;
-     border-radius: 8px;
-     box-shadow: 4px 4px 16px black;
+     border-radius: var(--radL);
+     border-color: var(--all-bord-color);
+     box-shadow: 0px 0px 16px var(--all-shad-color);
      background: rgb(0,0,0);
-     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 150px, rgba(255,0,0,1) 250px, rgba(255,0,0,1) 900px, rgba(0,0,0,1) 1000px);
+     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 150px, rgba(96,0,0,1) 250px, rgba(96,0,0,1) 900px, rgba(0,0,0,1) 1000px);
      height: 64px;
-     width: 984px;
+     width: var(--widthXL);
      padding: 8px;
      text-align: center;
  }
@@ -33,29 +85,30 @@ div.header {
 .topnav {
     float: center;
     overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid white;
-    width: 984px;
+    border-radius: var(--radM);
+    border: 1px solid var(--all-bord-color);
+    width: var(--widthXL);
     padding: 8px;
-	background-color: #222222;
-	box-shadow: 4px 4px 16px black;
+    margin: 0px, 4px;
+	background-color: var(--all-back-color);
+	box-shadow: 0px 0px 16px var(--all-shad-color);
 }
 .topnav a {
-    border-radius: 4px;
-    color: #eeeeee;
-    background-color: #444444;
+    border-radius: var(--radS);
+    color: var(--btn-text-color);
+    background-color: var(--btn-back-color);
     text-align: center;
-    padding: 4px;
-    margin-right: 8px;
+    margin: 0px 4px;
+    padding: 4px 8px;
 	text-decoration: none;
 	font-size: 17px;
 }
 .topnav a:hover {
-	background-color: #ddd;
-	color: black;
+	background-color: var(--exp-back-color);
+	color: var(--exp-text-color);
 }
 .topnav a.active {
-	background-color: #AA0000;
+	background-color: var(--exp-back-color);
 	color: white;
 }
 
@@ -65,51 +118,47 @@ h1 {
 }
 .left {
     float: left;
+    text-align: left;
 }
 .right {
     float: right;
+    text-align: right;
 }
 
 .content {
     float: center;
     align-item: center;
-    box-shadow: 4px 4px 16px black;
+    box-shadow: 0px 0px 16px var(--all-shad-color);
     border-radius: 8px;
-    background: #DDDDDD;
+    background: var(--all-back-color);
     height: auto;
-    width: 984px;
+    width: var(--widthXL);
     padding: 8px;
 }
 
-div.footer {
+.footer {
     float: center;
     border-radius: 8px;
-    border: 1px solid white;
-    box-shadow: 4px 4px 16px black;
-    background: #222222;
-    color: white;
+    border: 1px solid var(--all-bord-color);
+    box-shadow: 0px 0px 16px var(--all-shad-color);
+    background: var(--all-back-color);
+    color: var(--all-text-color);
     height: auto;
-    width: 984px;
+    width: var(--widthXL);
     padding: 8px;
     text-align: center;
 }
 
-span.validationError {
+.validationError {
 	color: red;
 }
-/*----------------TABLES----------------*/
-table, th, td{
-    margin: auto;
-    margin-top: 8px;
-    align: center;
-    border: 1px solid;
-    padding: 2px;
-    float: center;
-}
+/*----------------TABLE ABOUT----------------*/
 .tg-about {
+    float: center;
     border-collapse: collapse;
     border-spacing: 2px;
     border: 1px solid black;
+    padding: 2px;
     text-align: center;
 }
 .tg-about th{
@@ -118,29 +167,83 @@ table, th, td{
 .tg-about-static {
     color: black;
     border: 1px solid black;
-    margin: 8px;
-    width: auto;
+    padding: 4px;
+    width: 100px;
 }
 .tg-about-description {
+    text-align: left;
     color: black;
     border: 1px solid black;
-    margin: 8px;
-    width: 80%;
+    padding: 4px;
+    width: 600px;
+
+}
+/*----------------TABLES USER INFO----------------*/
+.info-table {
+    background-color: #EEE;
+    float: center;
+    padding: 4px 0px 4px;
+    border-spacing: 16px 0px;
+    text-align: left;
+}
+th.info-table {
+    width: 160px;
+    height: 2.2em;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 2px solid #600;
+}
+td.info-table {
+    width: 100vw;
+    height: 2.2em;
+    font-style: italic;
+    vertical-align: bottom;
+    border-bottom: 2px solid #600;
+}
+.users-table th, td{
+    float: center;
+    padding: 2px 8px;
+    border: 1px solid white;
 }
 /*----------------DIV----------------*/
-div.user-info {
+.info-box {
+    background-color: var(--ele-back-color);
+    color: var(--ele-text-color);
     float: center;
-    border: 2px solid black;
-    border-radius: 8px;
-    width: 300px;
+    border: 2px solid var(--ele-bord-color);
     height: auto;
     padding: 8px;
     margin: 16px auto;
-    box-shadow: 4px 4px 16px black;
+    box-shadow: 4px 4px 16px var(--all-shad-color: #C44);
 }
-div.user-info-element {
+.box-size-XXS {
+    width: var(--widthXXS);
+    border-radius: var(--radS);
+}
+.box-size-XS {
+    width: var(--widthXS);
+    border-radius: var(--radS);
+}
+.box-size-S {
+    width: var(--widthS);
+    border-radius: var(--radS);
+}
+.box-size-M {
+    width: var(--widthM);
+    border-radius: var(--radM);
+}
+.box-size-L {
+    width: var(--widthL);
+    border-radius: var(--radL);
+}
+
+.boxA{
+    width: 100%;
+}
+
+.user-info-element {
     border-radius: 4px;
-    width: 260px;
+    width: 80px;
     height: auto;
     padding: 4px;
     margin: 8px auto;
@@ -148,16 +251,6 @@ div.user-info-element {
 }
 input, label {
     margin: 4px;
-}
-div.level-1 {
-    float: center;
-    border: 1px solid white;
-    border-radius: 8px;
-    box-shadow: 4px 4px 16px black;
-    width: 95%px;
-    height: auto;
-    padding: 8px;
-    margin: 16px auto;
 }
 div.user-list {
     border: 2px solid black;

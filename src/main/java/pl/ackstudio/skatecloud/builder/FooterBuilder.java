@@ -51,6 +51,8 @@ public class FooterBuilder implements HttpSessionBindingListener {
         }
         System.out.println("Logged users: " + loggedUsersNames);
         model.addAttribute("loggedUsers", loggedUsersNames);*/
+        User u=userRepository.findByUsername("ooooo");
+        System.out.println("Find by name: "+u);
         return model;
     }
 }
